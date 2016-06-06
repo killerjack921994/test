@@ -1,0 +1,26 @@
+.icons-list .btn{
+    color: white;
+}
+a, a:visited {
+    color: #1e88e5;
+}
+a:hover{
+    color: #166dba;
+    background-color:inherit;
+}
+a.btn-primary {
+    color: #fff;
+}
+a.list_image img {
+ width: 100px;
+ height: 100px;
+}
+.list_image {
+ width: 100%;
+}
+.field_with_errors{
+    display: block;
+}
+.field_with_errors label{
+    display: table;
+}

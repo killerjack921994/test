@@ -1,0 +1,14 @@
+<% provide(:title, "Admin")%>
+<% content_for :admin do %>
+<%= render 'admin/shared/nav'%>
+<div class="page-container">
+    <div class="page-content">
+        <div class="sidebar sidebar-main">
+            <%= render 'admin/shared/sidebar'%>
+        </div>
+        <div class="content-wrapper">
+        <%= yield %>
+        </div>
+    </div>
+</div>
+<% end %>

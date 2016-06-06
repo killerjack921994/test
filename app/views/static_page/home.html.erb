@@ -1,0 +1,38 @@
+<div>
+<!-- Main navbar -->
+<div class="navbar navbar-inverse">
+<ul class="nav navbar-nav navbar-right">
+<li class="dropdown dropdown-user">
+<%= link_to image_tag("placeholder.jpg", alt: "logo")+"<span>Victoria</span><i class='caret'></i>".html_safe, root_path, class: "dropdown-toggle", data: {toggle: "dropdown"} %>
+<ul class="dropdown-menu dropdown-menu-right">
+<li><%= link_to 'Resign', resign_path %></li>
+<% if logged_in? %>
+<li><%= link_to 'Log out', logout_path, method: "delete" %></li>
+<% else %>
+<li><%= link_to 'Log in', login_path %></li>
+<% end %>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<!-- /main navbar -->
+</div>
+<div class="row">
+	<div class="col-md-3" style="background: gray">
+		aaaaaaaaaaaaaaaaaaaaaaaaa
+	</div>
+	<div class="col-md-9">
+		<% @book.each do |book| %>
+			<div class="col-md-4">
+				<%= image_tag book.image_url.to_s, class: "list_image" %>
+			</div>
+			<div class="col-md-8">
+				<p><%= book.name %></p>
+				<p><%= book.price %></p>
+			</div>
+			<div class="clearfix"></div>
+		<% end %>
+	</div>
+</div>
+

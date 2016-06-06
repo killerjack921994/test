@@ -1,0 +1,74 @@
+<div class="sidebar-content">
+
+    <!-- User menu -->
+    <div class="sidebar-user">
+        <div class="category-content">
+            <div class="media">
+                <%= link_to image_tag("placeholder.jpg", alt: "logo", class: "img-circle img-sm"), root_path , class:"media-left" %>
+                <div class="media-body">
+                    <span class="media-heading text-semibold">Victoria Baker</span>
+                    <div class="text-size-mini text-muted">
+                        <i class="icon-pin text-size-small"></i> &nbsp;Santa Ana, CA
+                    </div>
+                </div>
+
+                <div class="media-right media-middle">
+                    <ul class="icons-list">
+                        <li>
+                            <a href="#"><i class="icon-cog3"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /user menu -->
+
+
+    <!-- Main navigation -->
+    <div class="sidebar-category sidebar-category-visible">
+        <div class="category-content no-padding">
+            <ul class="navigation navigation-main navigation-accordion">
+                <!-- Main -->
+                <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i>
+                </li>
+                <li><%= link_to "<i class='icon-home4'></i> <span>Dashboard</span>".html_safe, root_path %>
+                </li>
+                <li>
+                    <%= link_to "<i class='icon-stack2'></i> <span>Dang sach</span>".html_safe, root_path %>
+                    <ul>
+                        <li><%= link_to "Dang sach the loai" , categories_path %>
+                        </li>
+                        <li><%= link_to "Dang sach Sach" , books_path %>
+                        </li>
+                        <li><%= link_to "Danh sach tac gia" , authors_path %>
+                        </li>
+                        <li><%= link_to "Danh sach nha san xuat" , manufacturers_path %>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <%= link_to "<i class='icon-profile'></i> <span>Thong tin</span>".html_safe, root_path %>
+                    <ul>
+                        <li><%= link_to "Thong tin khach hang" , customers_path %>
+                        </li>
+                        <li><%= link_to "Thong tin Nhan Vien" , staffs_path %>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <%= link_to "<i class='icon-file-text'></i> <span>Order</span>".html_safe, root_path %>
+                    <ul>
+                        <li><%= link_to "Thong tin khach hang" , customers_path %>
+                        </li>
+                        <li><%= link_to "Thong tin Nhan Vien" , staffs_path %>
+                        </li>
+                    </ul>
+                </li>
+                <!-- /main -->
+            </ul>
+        </div>
+    </div>
+    <!-- /main navigation -->
+
+</div>
