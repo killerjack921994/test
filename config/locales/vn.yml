@@ -1,0 +1,46 @@
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :vn
+#
+# This would use the information in config/locales/vn.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+vn:
+  hello: "Xin Chào!!"
+  
+  admin:
+    index:
+      hello: "Xin Chào Quản Trị Viên"
+    shared:
+      sidebar:
+        title: "Phần Chính"
+        dashboard: "Quản Lý"
+        list: "Danh Sách"
+        listcategories: "Danh Sách Thể Loại"
+        listbooks: "Danh Sách Sách"
+        listauthors: "Danh Sách Tác Giả"
+        listmanufacturers: "Danh Sách Nhà Xuất Bản"
+        order: "Hóa Đơn"
+        comment: "Bình Luận"
+        information: "Thông Tin"
+        informationcustomers: "Thông Tin Khách Hàng"
+        informationstaffs: "Thông Tin Thành Viên"
+      nav:
+        profile: "Thông Tin Tài Khoản"
+        out: "Thoát Tài Khoản"
+
+
+
+  

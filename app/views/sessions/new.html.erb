@@ -1,0 +1,63 @@
+<% provide(:title, "Dang Nhap") %>
+<!-- Main navbar -->
+	<div class="navbar navbar-inverse">
+		<div class="navbar-header">
+            <%= link_to image_tag("logo_light.png", alt: 'logo'), root_path, class: 'navbar-brand' %>
+		</div>
+	</div>
+	<!-- /main navbar -->
+	<!-- Page container -->
+	<div class="page-container login-container">
+		<!-- Page content -->
+		<div class="page-content">
+			<!-- Main content -->
+			<div class="content-wrapper">
+				<!-- Content area -->
+				<div class="content">
+					<!-- Simple login form -->
+                    <%= form_for (:session) do |f| %>
+						<% flash.each do |message_type, message| %>
+							<div class="alert alert-<%= message_type %>"><%= message %></div>
+						<% end %>
+						<div class="panel panel-body login-form">
+							<div class="text-center">
+								<div class="icon-object border-slate-300 text-slate-300"><i class="icon-reading"></i></div>
+								<h3 class="content-group">Login to your account<small class="display-block">Enter your credentials below</small></h3>
+							</div>
+                            
+							<div class="form-group has-feedback has-feedback-left">
+                                <%= f.email_field :email, class: "form-control", placeholder: "Email" %>
+								<div class="form-control-feedback">
+									<i class="icon-user text-muted"></i>
+								</div>
+							</div>
+                            
+                            <div class="form-group has-feedback has-feedback-left">
+                                <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+								<div class="form-control-feedback">
+									<i class="icon-lock2 text-muted"></i>
+								</div>
+							</div>
+
+							<div class="form-group">
+                                <%= f.submit "Log in", class: "btn btn-primary btn-block" %>
+							</div>
+
+							<div class="text-center">
+								<a href="login_password_recover.html">Forgot password?</a>
+                            </div>
+                            
+                            <div class="text-center">
+                                <p>New staff? <%= link_to "Sign up now!", resign_path %></p>
+                            </div>
+						</div>
+					<% end %>
+					<!-- /simple login form -->
+				</div>
+				<!-- /content area -->
+			</div>
+			<!-- /main content -->
+		</div>
+		<!-- /page content -->
+	</div>
+	<!-- /page container -->

@@ -1,0 +1,76 @@
+<% provide(:title, "Chi tiet thong tin khach hang")%>
+<% content_for :admin do %>
+<%= render 'admin/shared/nav'%>
+<div class="page-container">
+    <div class="page-content">
+        <div class="sidebar sidebar-main">
+            <%= render 'admin/shared/sidebar'%>
+        </div>
+        <div class="content-wrapper">
+						<div class="page-header">
+                <div class="page-header-content">
+                    <div class="page-title">
+                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Show Customers</span></h4>
+                    </div>
+                </div>
+                <div class="breadcrumb-line">
+						<ul class="breadcrumb">
+							<li>
+                                <%= link_to "<i class='icon-home2 position-left'></i> <span>Dashboard</span>".html_safe, admin_path %>
+                            </li>
+							<li><%= link_to "<span>Dang sach</span>".html_safe, customers_path %></li>
+							<li><%= link_to "Listing Customers" , customers_path %></li>
+							<li>Show Customers</li>
+						</ul>
+					</div>
+            </div>
+<div class="content">
+				<div class="panel panel-flat">
+					<div class="panel-heading">
+						<h1 class="panel-title">Show Customers</h1>
+					</div>
+                    <div class="panel-body">
+                                                
+                        <p>
+                          <strong>Name:</strong>
+                          <%= @customer.name %>
+                        </p>
+                        
+                        <p>
+                          <strong>Birthday:</strong>
+                          <%= @customer.birthday.strftime('%d/%m/%Y') %>
+                        </p>
+                        
+                        <p>
+                          <strong>Gender:</strong>
+                          <%= @customer.gender %>
+                        </p>
+                        
+                        <p>
+                          <strong>Phone:</strong>
+                          <%= @customer.phone %>
+                        </p>
+                        
+                        <p>
+                          <strong>Address:</strong>
+                          <%= @customer.address %>
+                        </p>
+                        
+                        <p>
+                          <strong>Email:</strong>
+                          <%= @customer.email %>
+                        </p>
+                        <div class="text-right">
+                            <%= link_to 'Edit', edit_customer_path(@customer), class:"btn btn-primary"  %>
+                            <%= link_to 'Back', customers_path, class:"btn btn-primary"  %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+</div>
+<%= javascript_include_tag 'uniform.min.js' %>
+<%= javascript_include_tag 'form_layouts.js' %>
+<%= javascript_include_tag 'select2.min.js' %>
+<% end %>

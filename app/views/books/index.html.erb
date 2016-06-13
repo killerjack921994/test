@@ -1,0 +1,109 @@
+<% provide(:title, "Danh sach Sach")%>
+<%= render 'admin/shared/nav' %>
+<div class="page-container">
+    <div class="page-content">
+        <div class="sidebar sidebar-main">
+            <%= render 'admin/shared/sidebar'%>
+        </div>
+        <div class="content-wrapper">
+			<div class="page-header">
+                <div class="page-header-content">
+                    <div class="page-title">
+                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Listing Books</span></h4>
+                    </div>
+                </div>
+                <div class="breadcrumb-line">
+						<ul class="breadcrumb">
+							<li>
+                                <%= link_to "<i class='icon-home2 position-left'></i> <span>Dashboard</span>".html_safe, admin_path %>
+                            </li>
+							<li><%= link_to "<span>Dang sach</span>".html_safe, books_path %></li>
+							<li>Listing Books</li>
+						</ul>
+					</div>
+            </div>
+<div class="content">
+	<% flash.each do |message_type, message| %>
+					<div class="alert alert-<%= message_type %>"><%= message %></div>
+				<% end %>
+<!-- Contextual classes -->
+					<div class="panel panel-flat">
+						<div class="panel-heading">
+							<h1 class="panel-title">Listing Books</h1>
+							<div class="heading-elements">
+								<ul class="icons-list">
+                                    <li><%= link_to 'New Book', new_book_path, class:"btn btn-primary"%></li>
+			                	</ul>
+		                	</div>
+						</div>
+							<table class="table datatable-basic">
+			                    <thead>
+			                        <tr>
+										<th>Image</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        <th>Price</th>
+                                        <th class="text-center">Action</th>
+                                    </tr>
+			                    </thead>
+			                    <tbody>
+			                        <% @books.each do |book| %>
+                                        <tr>
+											<% if current_staff.admin %>
+												<td><%= link_to (image_tag book.image_url.to_s), edit_book_path(book), class: 'list_image' %></td> <!--them .to_s vao sau book.image_url-->
+												<td><%= link_to book.name, edit_book_path(book) %></td>
+											<% elsif current_staff.id == book.staffs_id %>
+												<td><%= link_to (image_tag book.image_url.to_s), edit_book_path(book), class: 'list_image' %></td> <!--them .to_s vao sau book.image_url-->
+												<td><%= link_to book.name, edit_book_path(book) %></td>
+											<% else %>
+												<td><%= image_tag book.image_url.to_s, class: 'list_image_normal' %></td> <!--them .to_s vao sau book.image_url-->
+												<td><%= book.name %></td>
+											<% end %>
+                                          <td><%= book.description %></td>
+                                          <td><%= book.price %></td>
+                                          <td class="text-center">
+											<% if current_staff.admin %>
+                                                <ul class="icons-list">
+                                                    <li class="dropdown">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                            <i class="icon-menu9"></i>
+                                                         </a>
+                                                         <ul class="dropdown-menu dropdown-menu-right">
+                                                           <li><%= link_to 'Show', book %></li>
+                                                           <li><%= link_to 'Edit', edit_book_path(book) %></li>
+                                                           <li><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                                                         </ul>
+													</li>
+                                                </ul>
+											<% elsif current_staff.id == book.staffs_id %>
+												<ul class="icons-list">
+                                                    <li class="dropdown">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                            <i class="icon-menu9"></i>
+                                                         </a>
+                                                         <ul class="dropdown-menu dropdown-menu-right">
+                                                           <li><%= link_to 'Show', book %></li>
+                                                           <li><%= link_to 'Edit', edit_book_path(book) %></li>
+                                                           <li><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                                                         </ul>
+													</li>
+                                                </ul>
+											<% else %>
+											<% end %>
+                                            </td>
+                                        </tr>
+                                    <% end %>
+			                    </tbody>
+			                </table>
+					</div>
+					<!-- /contextual classes -->
+        </div>
+      </div>
+    </div>
+</div>
+<%= javascript_include_tag 'datatables.min.js' %>
+<%= javascript_include_tag 'datatables_basic_books.js' %>
+<%= javascript_include_tag 'select2.min.js' %>
+<%= javascript_include_tag 'bootbox.min.js' %>
+<%= javascript_include_tag 'sweet_alert.min.js' %>
+<%= javascript_include_tag 'components_modals.js' %>

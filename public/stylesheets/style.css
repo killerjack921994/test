@@ -1,0 +1,56 @@
+.icons-list .btn{
+    color: white;
+}
+a, a:visited {
+    color: #1e88e5;
+}
+a:hover{
+    color: #166dba;
+    background-color:inherit;
+}
+a.btn-primary {
+    color: #fff;
+}
+a.list_image img {
+ width: 100px;
+ height: 100px;
+}
+.list_image {
+ width: 100%;
+}
+.list_image_normal {
+ width: 100px;
+ height: 100px;
+}
+.error_explanation ul {
+    list-style: none;
+    padding: 0;
+}
+.field_with_errors{
+    display: block;
+    background: transparent;
+}
+.field_with_errors input[type="text"], .field_with_errors input[type="password"], .field_with_errors input[type="search"], .field_with_errors input[type="email"], .field_with_errors input[type="number"], .field_with_errors input[type="datetime"], .field_with_errors input[type="datetime-local"], .field_with_errors input[type="date"], .field_with_errors input[type="month"], .field_with_errors input[type="time"], .field_with_errors input[type="week"], .field_with_errors input[type="url"], .field_with_errors input[type="tel"], .field_with_errors textarea {
+    border-color: #d84315;
+}
+.field_with_errors textarea:focus {
+    border-color: #d84315;
+}
+.field_with_errors label{
+    display: table;
+}
+.required label{
+    font-weight: bold;
+}
+.required label:after{
+    color: #e32;
+    content:  ' *';
+    display: inline;
+}
+.wel{
+    text-align: center;
+    font-weight: 600;
+}
+.datatable-basic thead {
+    background-color: #26a69a;
+}

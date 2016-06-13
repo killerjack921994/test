@@ -1,0 +1,44 @@
+<% provide(:title, "Chinh sua the loai")%>
+<%= render 'admin/shared/nav'%>
+<div class="page-container">
+    <div class="page-content">
+        <div class="sidebar sidebar-main">
+            <%= render 'admin/shared/sidebar'%>
+        </div>
+        <div class="content-wrapper">
+			<div class="page-header">
+                <div class="page-header-content">
+                    <div class="page-title">
+                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Editing Category</span></h4>
+                    </div>
+                </div>
+                <div class="breadcrumb-line">
+						<ul class="breadcrumb">
+							<li>
+                                <%= link_to "<i class='icon-home2 position-left'></i> <span>Dashboard</span>".html_safe, admin_path %>
+                            </li>
+							<li><%= link_to "<span>Dang sach</span>".html_safe, categories_path %></li>
+							<li><%= link_to "Listing Categories" , categories_path %></li>
+							<li>Editing Category</li>
+						</ul>
+					</div>
+            </div>
+<div class="content">
+	<% flash.each do |message_type, message| %>
+					<div class="alert alert-<%= message_type %>"><%= message %></div>
+				<% end %>
+				<div class="panel panel-flat">
+					<div class="panel-heading">
+						<h1 class="panel-title">Editing Category</h1>
+					</div>
+                    <div class="panel-body">
+                        <%= render 'form' %>
+                    </div>
+                </div>
+            </div>
+  </div>
+    </div>
+</div>
+<%= javascript_include_tag 'uniform.min.js' %>
+<%= javascript_include_tag 'form_layouts.js' %>
+<%= javascript_include_tag 'select2.min.js' %>
