@@ -91,9 +91,9 @@ class StaffsController < ApplicationController
     end
     
     def authentication
-    if logged_in?
-    else
-      redirect_to login_path
+      if logged_in?
+      else
+        redirect_to login_path
+      end
     end
-  end
 end

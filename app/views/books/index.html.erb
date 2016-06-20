@@ -1,4 +1,4 @@
-<% provide(:title, "Danh sach Sach")%>
+<% provide(:title, t('.listbook'))%>
 <%= render 'admin/shared/nav' %>
 <div class="page-container">
     <div class="page-content">
@@ -9,16 +9,16 @@
 			<div class="page-header">
                 <div class="page-header-content">
                     <div class="page-title">
-                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Listing Books</span></h4>
+                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"><%= t('.listbook')%></span></h4>
                     </div>
                 </div>
                 <div class="breadcrumb-line">
 						<ul class="breadcrumb">
 							<li>
-                                <%= link_to "<i class='icon-home2 position-left'></i> <span>Dashboard</span>".html_safe, admin_path %>
+                                <%= link_to "<i class='icon-home2 position-left'></i>".html_safe + t('.dashboard'), admin_path %>
                             </li>
-							<li><%= link_to "<span>Dang sach</span>".html_safe, books_path %></li>
-							<li>Listing Books</li>
+							<li><%= link_to t('.list'), books_path %></li>
+							<li><%= t('.listbook')%></li>
 						</ul>
 					</div>
             </div>
@@ -29,21 +29,23 @@
 <!-- Contextual classes -->
 					<div class="panel panel-flat">
 						<div class="panel-heading">
-							<h1 class="panel-title">Listing Books</h1>
+							<h1 class="panel-title"><%= t('.listbook')%></h1>
 							<div class="heading-elements">
 								<ul class="icons-list">
-                                    <li><%= link_to 'New Book', new_book_path, class:"btn btn-primary"%></li>
+                                    <li><%= link_to t('.addnew'), new_book_path, class:"btn btn-primary"%></li>
 			                	</ul>
 		                	</div>
 						</div>
 							<table class="table datatable-basic">
 			                    <thead>
 			                        <tr>
-										<th>Image</th>
-                                        <th>Name</th>
-                                        <th>Description</th>
-                                        <th>Price</th>
-                                        <th class="text-center">Action</th>
+										<th><%= t('.image')%></th>
+                                        <th><%= t('.name')%></th>
+                                        <th><%= t('.description')%></th>
+										<th><%= t('.categories')%></th>
+										<th><%= t('.author')%></th>
+                                        <th><%= t('.staff')%></th>
+                                        <th class="text-center"><%= t('.action')%></th>
                                     </tr>
 			                    </thead>
 			                    <tbody>
@@ -52,7 +54,7 @@
 											<% if current_staff.admin %>
 												<td><%= link_to (image_tag book.image_url.to_s), edit_book_path(book), class: 'list_image' %></td> <!--them .to_s vao sau book.image_url-->
 												<td><%= link_to book.name, edit_book_path(book) %></td>
-											<% elsif current_staff.id == book.staffs_id %>
+											<% elsif current_staff.id == book.staff_id %>
 												<td><%= link_to (image_tag book.image_url.to_s), edit_book_path(book), class: 'list_image' %></td> <!--them .to_s vao sau book.image_url-->
 												<td><%= link_to book.name, edit_book_path(book) %></td>
 											<% else %>
@@ -60,7 +62,24 @@
 												<td><%= book.name %></td>
 											<% end %>
                                           <td><%= book.description %></td>
-                                          <td><%= book.price %></td>
+											<td>
+												<% book.category.each do |category| %>
+													<% if category.nil? %>
+													<% else %>
+														<%= category.name %><br>
+													<% end %>
+												<% end %>
+											</td>
+											<% if book.author_id.nil? %>
+												<td></td>
+											<% else %>
+												<td><%= book.author.name %></td>
+											<% end %>
+											<% if book.staff_id.nil? %>
+												<td></td>
+											<% else %>
+												<td><%= book.staff.name %></td>
+											<% end %>
                                           <td class="text-center">
 											<% if current_staff.admin %>
                                                 <ul class="icons-list">
@@ -69,22 +88,22 @@
                                                             <i class="icon-menu9"></i>
                                                          </a>
                                                          <ul class="dropdown-menu dropdown-menu-right">
-                                                           <li><%= link_to 'Show', book %></li>
-                                                           <li><%= link_to 'Edit', edit_book_path(book) %></li>
-                                                           <li><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                                                           <li><%= link_to t('.show'), book %></li>
+                                                           <li><%= link_to t('.edit'), edit_book_path(book) %></li>
+                                                           <li><%= link_to t('.destroy'), book, method: :delete, data: { confirm: 'Are you sure?' } %></li>
                                                          </ul>
 													</li>
                                                 </ul>
-											<% elsif current_staff.id == book.staffs_id %>
+											<% elsif current_staff.id == book.staff_id %>
 												<ul class="icons-list">
                                                     <li class="dropdown">
                                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                                             <i class="icon-menu9"></i>
                                                          </a>
-                                                         <ul class="dropdown-menu dropdown-menu-right">
-                                                           <li><%= link_to 'Show', book %></li>
-                                                           <li><%= link_to 'Edit', edit_book_path(book) %></li>
-                                                           <li><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                                                          <ul class="dropdown-menu dropdown-menu-right">
+                                                           <li><%= link_to t('.show'), book %></li>
+                                                           <li><%= link_to t('.edit'), edit_book_path(book) %></li>
+                                                           <li><%= link_to t('.destroy'), book, method: :delete, data: { confirm: 'Are you sure?' } %></li>
                                                          </ul>
 													</li>
                                                 </ul>

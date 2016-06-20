@@ -1,4 +1,4 @@
-<% provide(:title, "Chi tiet Sach")%>
+<% provide(:title, t('.showbook'))%>
 <%= render 'admin/shared/nav'%>
 <div class="page-container">
     <div class="page-content">
@@ -9,24 +9,24 @@
 			<div class="page-header">
                 <div class="page-header-content">
                     <div class="page-title">
-                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Editing Book</span></h4>
+                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"><%= t('.showbook')%></span></h4>
                     </div>
                 </div>
                 <div class="breadcrumb-line">
 						<ul class="breadcrumb">
 							<li>
-                                <%= link_to "<i class='icon-home2 position-left'></i> <span>Dashboard</span>".html_safe, admin_path %>
+                                <%= link_to "<i class='icon-home2 position-left'></i>".html_safe + t('.dashboard'), admin_path %>
                             </li>
-							<li><%= link_to "<span>Dang sach</span>".html_safe, books_path %></li>
-							<li><%= link_to "Listing Books" , books_path %></li>
-							<li>Show Books</li>
+							<li><%= link_to t('.list'), books_path %></li>
+							<li><%= link_to t('.listbook') , books_path %></li>
+							<li><%= t('.showbook')%></li>
 						</ul>
 					</div>
             </div>
 <div class="content">
 				<div class="panel panel-flat">
 					<div class="panel-heading">
-						<h1 class="panel-title">Show Books</h1>
+						<h1 class="panel-title"><%= t('.showbook')%></h1>
 					</div>
                     <div class="panel-body">
 						<div class="col-md-4">
@@ -35,24 +35,47 @@
 						
 						<div class="col-md-8">
 							<p>
-                            <strong>Name:</strong>
+                            <strong><%= t('.name')%></strong>
                             <%= @book.name %>
                           </p>
-                          
                           <p>
-                            <strong>Description:</strong>
+							<strong><%= t('.categories')%></strong>
+							<% @book.category.each do |category| %>
+								<% if category.nil? %>
+								<% else %>
+										<%= category.name %>
+								<% end %>
+							<% end %>
+						  </p>
+                          <p>
+                            <strong><%= t('.description')%></strong>
                             <%= @book.description %>
                           </p>
-                          
                           <p>
-                            <strong>Price:</strong>
+							<strong><%= t('.author')%></strong>
+							<% if @book.author_id.nil? %>
+								<strong></strong>
+							<% else %>
+								<%= @book.author.name %>
+							<% end %>
+                          </p>
+						  <p>
+							<strong><%= t('.manufacturer')%></strong>
+							<% if @book.manufacturer_id.nil? %>
+								<strong></strong>
+							<% else %>
+								<%= @book.manufacturer.name %>
+							<% end %>
+                          </p>
+                          <p>
+                            <strong><%= t('.price')%></strong>
                             <%= @book.price %>
                           </p>
 						</div>
 						<div class="clearfix"></div>
 						<div class="text-right">
-								<%= link_to 'Edit', edit_book_path(@book), class:"btn btn-primary" %>
-								<%= link_to 'Back', books_path, class:"btn btn-primary" %>
+								<%= link_to t('.edit'), edit_book_path(@book), class:"btn btn-primary" %>
+								<%= link_to t('.back'), books_path, class:"btn btn-primary" %>
 							</div>
                     </div>
                 </div>

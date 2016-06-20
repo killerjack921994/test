@@ -1,4 +1,4 @@
-<% provide(:title, "Danh sach thong tin nhan vien")%>
+<% provide(:title, t('.liststaff'))%>
 <%= render 'admin/shared/nav'%>
 <div class="page-container">
     <div class="page-content">
@@ -9,16 +9,16 @@
             <div class="page-header">
                 <div class="page-header-content">
                     <div class="page-title">
-                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Listing Staffs</span></h4>
+                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"><%= t('.liststaff')%></span></h4>
                     </div>
                 </div>
                 <div class="breadcrumb-line">
 						<ul class="breadcrumb">
 							<li>
-                                <%= link_to "<i class='icon-home2 position-left'></i> <span>Dashboard</span>".html_safe, admin_path %>
+                                <%= link_to "<i class='icon-home2 position-left'></i>".html_safe + t('.dashboard'), admin_path %>
                             </li>
-							<li><%= link_to "<span>Dang sach</span>".html_safe, staffs_path %></li>
-							<li>Listing Staffs</li>
+							<li><%= link_to t('.infomation').html_safe, staffs_path %></li>
+							<li><%= t('.liststaff')%></li>
 						</ul>
 					</div>
             </div>
@@ -29,11 +29,11 @@
 <!-- Basic datatable -->
     <div class="panel panel-flat">
         <div class="panel-heading">
-            <h1 class="panel-title">Listing Staffs</h1>
+            <h1 class="panel-title"><%= t('.liststaff')%></h1>
             <div class="heading-elements">
                 <ul class="icons-list">
 					<% if current_staff.admin %>
-						<li class="custombutton"><%= link_to 'New Staff', new_staff_path, class:"btn btn-primary" %></li>
+						<li class="custombutton"><%= link_to  t('.addnew'), new_staff_path, class:"btn btn-primary" %></li>
 					<% else %>
 					<% end %>
                 </ul>
@@ -42,16 +42,17 @@
 
         
 
-        <table class="table datatable-basic">
+        <table class="table datatable-basic table-hover">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Birthday</th>
-                    <th>Gender</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>Email</th>
-                    <th class="text-center">Action</th>
+                    <th><%= t('.name')%></th>
+                    <th><%= t('.birthday')%></th>
+                    <th><%= t('.gender')%></th>
+                    <th><%= t('.phone')%></th>
+                    <th><%= t('.address')%></th>
+                    <th><%= t('.email')%></th>
+					<th><%= t('.authority')%></th>
+                    <th class="text-center"><%= t('.action')%></th>
                 </tr>
             </thead>
             <tbody>
@@ -69,6 +70,11 @@
                         <td><%= staff.phone %></td>
                         <td><%= staff.address %></td>
                         <td><%= staff.email %></td>
+						<% if staff.admin %>
+							<td>Admin</td>
+						<% else %>
+							<td>Staff</td>
+						<% end %>
                       <td class="text-center">
 						<% if current_staff.admin %>
                             <ul class="icons-list">
@@ -78,9 +84,9 @@
                                     </a>
 
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><%= link_to 'Show', staff %></li>
-                                        <li><%= link_to 'Edit', edit_staff_path(staff)%></li>
-                                        <li><%= link_to 'Destroy', staff, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                                        <li><%= link_to t('.show'), staff %></li>
+                                        <li><%= link_to t('.edit'), edit_staff_path(staff)%></li>
+                                        <li><%= link_to t('.destroy'), staff, method: :delete, data: { confirm: 'Are you sure?' } %></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -92,9 +98,9 @@
                                     </a>
 
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><%= link_to 'Show', staff %></li>
-                                        <li><%= link_to 'Edit', edit_staff_path(staff)%></li>
-                                        <li><%= link_to 'Destroy', staff, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                                        <li><%= link_to t('.show'), staff %></li>
+                                        <li><%= link_to t('.edit'), edit_staff_path(staff)%></li>
+                                        <li><%= link_to t('.destroy'), staff, method: :delete, data: { confirm: 'Are you sure?' } %></li>
                                     </ul>
                                 </li>
                             </ul>

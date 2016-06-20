@@ -1,5 +1,4 @@
-<% provide(:title, "Chi tiet thong tin khach hang")%>
-<% content_for :admin do %>
+<% provide(:title, t('.showcustomer'))%>
 <%= render 'admin/shared/nav'%>
 <div class="page-container">
     <div class="page-content">
@@ -10,39 +9,42 @@
 						<div class="page-header">
                 <div class="page-header-content">
                     <div class="page-title">
-                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Show Customers</span></h4>
+                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"><%= t('.showcustomer')%></span></h4>
                     </div>
                 </div>
                 <div class="breadcrumb-line">
 						<ul class="breadcrumb">
 							<li>
-                                <%= link_to "<i class='icon-home2 position-left'></i> <span>Dashboard</span>".html_safe, admin_path %>
+                                <%= link_to "<i class='icon-home2 position-left'></i>".html_safe + t('.dashboard'), admin_path %>
                             </li>
-							<li><%= link_to "<span>Dang sach</span>".html_safe, customers_path %></li>
-							<li><%= link_to "Listing Customers" , customers_path %></li>
-							<li>Show Customers</li>
+							<li><%= link_to t('.infomation'), customers_path %></li>
+							<li><%= link_to t('.listcustomer') , customers_path %></li>
+							<li><%= t('.showcustomer')%></li>
 						</ul>
 					</div>
             </div>
 <div class="content">
+	<% flash.each do |message_type, message| %>
+					<div class="alert alert-<%= message_type %>"><%= message %></div>
+				<% end %>
 				<div class="panel panel-flat">
 					<div class="panel-heading">
-						<h1 class="panel-title">Show Customers</h1>
+						<h1 class="panel-title"><%= t('.showcustomer')%></h1>
 					</div>
                     <div class="panel-body">
                                                 
                         <p>
-                          <strong>Name:</strong>
+                          <strong><%= t('.name')%></strong>
                           <%= @customer.name %>
                         </p>
                         
                         <p>
-                          <strong>Birthday:</strong>
-                          <%= @customer.birthday.strftime('%d/%m/%Y') %>
+                          <strong><%= t('.birthday')%></strong>
+                          <%= @customer.birthday %>
                         </p>
                         
                         <p>
-                          <strong>Gender:</strong>
+                          <strong><%= t('.gender')%></strong>
                           <%= @customer.gender %>
                         </p>
                         
@@ -52,17 +54,17 @@
                         </p>
                         
                         <p>
-                          <strong>Address:</strong>
+                          <strong><%= t('.address')%></strong>
                           <%= @customer.address %>
                         </p>
                         
                         <p>
-                          <strong>Email:</strong>
+                          <strong><%= t('.email')%></strong>
                           <%= @customer.email %>
                         </p>
                         <div class="text-right">
-                            <%= link_to 'Edit', edit_customer_path(@customer), class:"btn btn-primary"  %>
-                            <%= link_to 'Back', customers_path, class:"btn btn-primary"  %>
+                            <%= link_to t('.edit'), edit_customer_path(@customer), class:"btn btn-primary"  %>
+                            <%= link_to t('.back'), customers_path, class:"btn btn-primary"  %>
                         </div>
                     </div>
                 </div>
@@ -73,4 +75,3 @@
 <%= javascript_include_tag 'uniform.min.js' %>
 <%= javascript_include_tag 'form_layouts.js' %>
 <%= javascript_include_tag 'select2.min.js' %>
-<% end %>

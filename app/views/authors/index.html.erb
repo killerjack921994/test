@@ -1,4 +1,4 @@
-<% provide(:title, "Danh sach tac gia")%>
+<% provide(:title,  t('.listauthor'))%>
 <%= render 'admin/shared/nav'%>
 <div class="page-container">
     <div class="page-content">
@@ -9,16 +9,16 @@
             <div class="page-header">
                 <div class="page-header-content">
                     <div class="page-title">
-                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Listing Authors</span></h4>
+                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"><%= t('.listauthor')%></span></h4>
                     </div>
                 </div>
                 <div class="breadcrumb-line">
 						<ul class="breadcrumb">
 							<li>
-                                <%= link_to "<i class='icon-home2 position-left'></i> <span>Dashboard</span>".html_safe, admin_path %>
+                                <%= link_to "<i class='icon-home2 position-left'></i>".html_safe + t('.dashboard'), admin_path %>
                             </li>
-							<li><%= link_to "<span>Dang sach</span>".html_safe, authors_path %></li>
-							<li>Listing Authors</li>
+							<li><%= link_to t('.list'), authors_path %></li>
+							<li><%= t('.listauthor')%></li>
 						</ul>
 					</div>
             </div>
@@ -29,24 +29,24 @@
 <!-- Basic datatable -->
     <div class="panel panel-flat">
         <div class="panel-heading">
-            <h1 class="panel-title">Listing Authors</h1>
+            <h1 class="panel-title"><%= t('.listauthor')%></h1>
             <div class="heading-elements">
                 <ul class="icons-list">
 					<% if current_staff.admin %>
-						<li class="custombutton"><%= link_to 'New Author', new_author_path, class:"btn btn-primary" %></li>
+						<li class="custombutton"><%= link_to t('.addnew'), new_author_path, class:"btn btn-primary" %></li>
 					<% else %>
 					<% end %>
                 </ul>
             </div>
         </div>
-        <table class="table datatable-basic">
+        <table class="table datatable-basic table-hover">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Birthday</th>
-                    <th>Description</th>
-                    <th>Homeland</th>
-                    <th class="text-center">Action</th>
+                    <th><%= t('.name')%></th>
+                    <th><%= t('.birthday')%></th>
+                    <th><%= t('.description')%></th>
+                    <th><%= t('.homeland')%></th>
+                    <th class="text-center"><%= t('.action')%></th>
                 </tr>
             </thead>
             <tbody>
@@ -69,9 +69,9 @@
                                     </a>
 
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><%= link_to 'Show', author %></li>
-                                        <li><%= link_to 'Edit', edit_author_path(author) %></li>
-                                        <li><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                                        <li><%= link_to t('.show'), author %></li>
+                                        <li><%= link_to t('.edit'), edit_author_path(author) %></li>
+                                        <li><%= link_to t('.destroy'), author, method: :delete, data: { confirm: 'Are you sure?' } %></li>
                                     </ul>
                                 </li>
                             </ul>

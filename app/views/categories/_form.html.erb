@@ -13,15 +13,15 @@
   <% end %>
 
   <div class="field required">
-    <%= f.label :name %><br>
+    <%= f.label :name, t('.name') %><br>
     <%= f.text_field :name, class:"form-control", placeholder:"Nhap ten the loai" %>
   </div>
   <div class="field required">
-    <%= f.label :description %><br>
+    <%= f.label :description, t('.description') %><br>
     <%= f.text_area :description, rows:"5", cols:"5", class:"form-control", placeholder:"Nhap noi dung the loai" %>
   </div>
   <div class="actions text-right">
     <%= f.submit nil, :class => 'btn btn-primary'%>
-    <%= link_to 'Back', categories_path, class: 'btn btn-primary' %>
+    <%= link_to t('.back'), categories_path, class: 'btn btn-primary' %>
   </div>
 <% end %>

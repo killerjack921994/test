@@ -1,4 +1,4 @@
-<% provide(:title, "Them Sach")%>
+<% provide(:title, t('.newbook'))%>
 <%= render 'admin/shared/nav'%>
 <div class="page-container">
     <div class="page-content">
@@ -9,17 +9,17 @@
 			<div class="page-header">
                 <div class="page-header-content">
                     <div class="page-title">
-                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">New Book</span></h4>
+                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"><%= t('.newbook')%></span></h4>
                     </div>
                 </div>
                 <div class="breadcrumb-line">
 						<ul class="breadcrumb">
 							<li>
-                                <%= link_to "<i class='icon-home2 position-left'></i> <span>Dashboard</span>".html_safe, admin_path %>
+                                <%= link_to "<i class='icon-home2 position-left'></i>".html_safe + t('.dashboard'), admin_path %>
                             </li>
-							<li><%= link_to "<span>Dang sach</span>".html_safe, books_path %></li>
-							<li><%= link_to "Listing Books" , books_path %></li>
-							<li>New Book</li>
+							<li><%= link_to t('.list'), books_path %></li>
+							<li><%= link_to t('.listbook') , books_path %></li>
+							<li><%= t('.newbook')%></li>
 						</ul>
 					</div>
             </div>
@@ -29,7 +29,7 @@
 				<% end %>
 				<div class="panel panel-flat">
 					<div class="panel-heading">
-						<h1 class="panel-title">New Book</h1>
+						<h1 class="panel-title"><%= t('.newbook')%></h1>
 					</div>
                     <div class="panel-body">
                         <%= render 'form' %>
@@ -42,3 +42,7 @@
 <%= javascript_include_tag 'uniform.min.js' %>
 <%= javascript_include_tag 'form_layouts.js' %>
 <%= javascript_include_tag 'select2.min.js' %>
+<%= javascript_include_tag 'bootstrap_select.min.js' %>
+<%= javascript_include_tag 'form_bootstrap_select.js' %>
+<%= javascript_include_tag 'interactions.min.js' %>
+<%= javascript_include_tag 'form_select2.js' %>

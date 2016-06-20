@@ -12,7 +12,7 @@ class BooksController < ApplicationController
   # GET /books/1.json
   def show
     if current_staff.admin
-    elsif current_staff.id == @book.staffs_id
+    elsif current_staff.id == @book.staff_id
     else
       redirect_to books_path
     end
@@ -26,7 +26,7 @@ class BooksController < ApplicationController
   # GET /books/1/edit
   def edit
     if current_staff.admin
-    elsif current_staff.id == @book.staffs_id
+    elsif current_staff.id == @book.staff_id
     else
       redirect_to books_path
     end
@@ -36,9 +36,16 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = Book.new(book_params)
-
+    
+    params[:book][:category].delete("")
+    @array_category = params[:book][:category]
+    @category = Category.find(@array_category)
+    
     respond_to do |format|
       if @book.save
+        
+        @book.category << @category
+        
         flash[:success] = 'Book was successfully created.'
         format.html { redirect_to new_book_path }
         format.json { render :show, status: :created, location: @book }
@@ -52,8 +59,17 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1
   # PATCH/PUT /books/1.json
   def update
+    
+    params[:book][:category].delete("")
+    @array_category = params[:book][:category]
+    @category = Category.find(@array_category)
+    
     respond_to do |format|
       if @book.update(book_params)
+        
+        @book.category.delete_all
+        @book.category << @category
+        
         flash[:success] = 'Book was successfully updated.'
         format.html { redirect_to edit_book_path }
         format.json { render :show, status: :ok, location: @book }
@@ -83,7 +99,7 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:name, :description, :price, :image_url, :image, :staffs_id) #them :image
+      params.require(:book).permit(:name, :description, :price, :image_url, :image, :staff_id, :author_id, :manufacturer_id, :category) #them :image
     end
 
     def authentication

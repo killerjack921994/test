@@ -1,0 +1,31 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div class="error_explanation">
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+       <div class="alert alert-warning alert-bordered">
+          <button type="button" class="close" data-dismiss="alert"><span>×</span><span class="sr-only">Close</span></button>
+          <span class="text-semibold">Warning! </span><%= message %>
+        </div>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :name, t('.name') %><br>
+    <%= f.text_field :name, class:"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :email, t('.email') %><br>
+    <%= f.text_field :email, class:"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :method, t('.method') %><br>
+    <%= f.select :method, options_for_select(["Select One", "Borrow", "Have been paid", "Buy", "Awaiting payment"],:disabled => ["Select One"]),{}, {:class => 'bootstrap-select'} %>
+  </div>
+  <div class="actions text-right">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to  t('.back'), orders_path, class:"btn btn-primary"  %>
+  </div>
+<% end %>

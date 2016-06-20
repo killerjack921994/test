@@ -1,0 +1,31 @@
+<%= form_for(@comment) do |f| %>
+  <% if @comment.errors.any? %>
+    <div class="error_explanation">
+      <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+        <div class="alert alert-warning alert-bordered">
+          <button type="button" class="close" data-dismiss="alert"><span>×</span><span class="sr-only">Close</span></button>
+          <span class="text-semibold">Warning! </span><%= message %>
+        </div>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, t('.name') %><br>
+    <%= f.text_field :name, class:"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :comment, t('.ndcomment') %><br>
+    <%= f.text_area :comment, class:"form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :user, t('.user') %><br>
+    <%= f.text_field :user, class:"form-control" %>
+  </div>
+  <div class="actions text-right">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to  t('.back'), comments_path, class:"btn btn-primary"  %>
+  </div>
+<% end %>

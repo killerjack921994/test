@@ -1,4 +1,4 @@
-<% provide(:title, "Chinh sua nha san xuat")%>
+<% provide(:title, t('.editmanufacturer'))%>
 <%= render 'admin/shared/nav'%>
 <div class="page-container">
     <div class="page-content">
@@ -9,17 +9,17 @@
 			<div class="page-header">
                 <div class="page-header-content">
                     <div class="page-title">
-                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Editing Manufacturer</span></h4>
+                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"><%= t('.editmanufacturer')%></span></h4>
                     </div>
                 </div>
                 <div class="breadcrumb-line">
 						<ul class="breadcrumb">
 							<li>
-                                <%= link_to "<i class='icon-home2 position-left'></i> <span>Dashboard</span>".html_safe, admin_path %>
+                                <%= link_to "<i class='icon-home2 position-left'></i>".html_safe + t('.dashboard'), admin_path %>
                             </li>
-							<li><%= link_to "<span>Dang sach</span>".html_safe, manufacturers_path %></li>
-							<li><%= link_to "Listing Manufacturers" , manufacturers_path %></li>
-							<li>Editing Manufacturer</li>
+							<li><%= link_to t('.list'), manufacturers_path %></li>
+							<li><%= link_to t('.listmanufacturer') , manufacturers_path %></li>
+							<li><%= t('.editmanufacturer')%></li>
 						</ul>
 					</div>
             </div>
@@ -29,7 +29,7 @@
 				<% end %>
 				<div class="panel panel-flat">
 					<div class="panel-heading">
-						<h1 class="panel-title">Editing Manufacturer</h1>
+						<h1 class="panel-title"><%= t('.editmanufacturer')%></h1>
 					</div>
                     <div class="panel-body">
                         <%= render 'form' %>

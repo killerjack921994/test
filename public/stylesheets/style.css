@@ -1,4 +1,13 @@
+body {
+    background-color: #f5f5f5 !important;
+}
 .icons-list .btn{
+    color: white;
+}
+.datatable-basic th{
+    color: white;
+}
+.dataTable thead .sorting:after {
     color: white;
 }
 a, a:visited {
@@ -53,4 +62,7 @@ a.list_image img {
 }
 .datatable-basic thead {
     background-color: #26a69a;
+}
+.bootstrap-select {
+    width: 100% !important;
 }

@@ -1,4 +1,4 @@
-<% provide(:title, "chi tiet the loai")%>
+<% provide(:title, t('.showcategories'))%>
 <%= render 'admin/shared/nav'%>
 <div class="page-container">
     <div class="page-content">
@@ -9,37 +9,37 @@
 			<div class="page-header">
                 <div class="page-header-content">
                     <div class="page-title">
-                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Show Category</span></h4>
+                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"><%= t('.showcategories')%></span></h4>
                     </div>
                 </div>
                 <div class="breadcrumb-line">
 						<ul class="breadcrumb">
 							<li>
-                                <%= link_to "<i class='icon-home2 position-left'></i> <span>Dashboard</span>".html_safe, admin_path %>
+                                <%= link_to "<i class='icon-home2 position-left'></i>".html_safe + t('.dashboard'), admin_path %>
                             </li>
-							<li><%= link_to "<span>Dang sach</span>".html_safe, categories_path %></li>
-							<li><%= link_to "Listing Categories" , categories_path %></li>
-							<li>Show Category</li>
+							<li><%= link_to  t('.list'), categories_path %></li>
+							<li><%= link_to  t('.listcategories'), categories_path %></li>
+							<li><%= t('.showcategories')%></li>
 						</ul>
 					</div>
             </div>
 <div class="content">
 				<div class="panel panel-flat">
 					<div class="panel-heading">
-						<h1 class="panel-title">Show Category</h1>
+						<h1 class="panel-title"><%= t('.showcategories')%></h1>
 					</div>
                     <div class="panel-body">
                         <p>
-                            <strong>Name:</strong>
+                            <strong><%= t('.name')%></strong>
                             <%= @category.name %>
                         </p>
                         <p>
-                            <strong>Description:</strong>
+                            <strong><%= t('.description')%></strong>
                             <%= @category.description %>
                           </p>
                         <div class="text-right">
-                            <%= link_to 'Edit', edit_category_path(@category), class: "btn btn-primary" %>
-                            <%= link_to 'Back', categories_path, class: "btn btn-primary"%>
+                            <%= link_to t('.edit'), edit_category_path(@category), class: "btn btn-primary" %>
+                            <%= link_to t('.back'), categories_path, class: "btn btn-primary"%>
                         </div>
                     </div>
                 </div>

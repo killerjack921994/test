@@ -13,23 +13,23 @@
   <% end %>
 
   <div class="field required">
-    <%= f.label :name %><br>
+    <%= f.label :name, t('.name') %><br>
     <%= f.text_field :name, class:"form-control", placeholder:"Nhap ten Nha San Xuat" %>
   </div>
   <div class="field required">
-    <%= f.label :address %><br>
+    <%= f.label :address, t('.address') %><br>
     <%= f.text_area :address, class:"form-control", placeholder:"Ring street 12" %>
   </div>
   <div class="field required">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone, :maxlength => 12, class:"form-control", placeholder:"+99-99-9999-9999" %>
+    <%= f.label :phone, t('.phone') %><br>
+    <%= f.text_field :phone, :maxlength => 12, class:"form-control", placeholder:"+99-99-9999-9999", onkeypress: 'return event.charCode >= 48 && event.charCode <= 57' %>
   </div>
   <div class="field required">
-    <%= f.label :fax %><br>
-    <%= f.text_field :fax, :maxlength => 12, class:"form-control", placeholder:"+99-99-9999-9999" %>
+    <%= f.label :fax, t('.fax') %><br>
+    <%= f.text_field :fax, :maxlength => 12, class:"form-control", placeholder:"+99-99-9999-9999", onkeypress: 'return event.charCode >= 48 && event.charCode <= 57' %>
   </div>
   <div class="actions text-right">
     <%= f.submit nil, :class => 'btn btn-primary'%>
-    <%= link_to 'Back', manufacturers_path, class:"btn btn-primary" %>
+    <%= link_to t('.back'), manufacturers_path, class:"btn btn-primary" %>
   </div>
 <% end %>

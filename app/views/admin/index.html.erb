@@ -6,10 +6,25 @@
             <%= render 'admin/shared/sidebar'%>
         </div>
         <div class="content-wrapper">
+			<div class="page-header">
+                <div class="page-header-content">
+                    <div class="page-title">
+                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"><%= t('.dashboard')%></span></h4>
+                    </div>
+                </div>
+                <div class="breadcrumb-line">
+						<ul class="breadcrumb">
+							<li>
+                                <%= link_to "<i class='icon-home2 position-left'></i><span>Home</span>".html_safe, admin_path %>
+                            </li>
+							<li><%= t('.dashboard')%></li>
+						</ul>
+					</div>
+            </div>
             <% flash.each do |message_type, message| %>
 				<div class="alert alert-<%= message_type %>"><%= message %></div>
 			<% end %>
-            <h1>Welcome, Administrator</h1>
+            <h1 style="text-align: center"><%= t('.hello') + current_staff.name %></h1>
         </div>
     </div>
 </div>

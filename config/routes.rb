@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  scope "/:locale" do
+  
+  
+  scope "(:locale)", locale: /en|vn/ do
     root 'static_page#home'
     
     get 'admin' => 'admin#index'
@@ -15,6 +17,8 @@ Rails.application.routes.draw do
     resources :authors, path: 'admin/authors'
     resources :books, path: 'admin/books'
     resources :categories, path: 'admin/categories'
+    resources :orders, path: 'admin/orders'
+    resources :comments, path: 'admin/comments'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

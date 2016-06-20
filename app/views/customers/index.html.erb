@@ -1,5 +1,4 @@
-<% provide(:title, "Danh sach thong tin khach hang")%>
-<% content_for :admin do %>
+<% provide(:title, t('.listcustomer'))%>
 <%= render 'admin/shared/nav'%>
 <div class="page-container">
     <div class="page-content">
@@ -10,43 +9,46 @@
             <div class="page-header">
                 <div class="page-header-content">
                     <div class="page-title">
-                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Listing Customers</span></h4>
+                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"><%= t('.listcustomer')%></span></h4>
                     </div>
                 </div>
                 <div class="breadcrumb-line">
 						<ul class="breadcrumb">
 							<li>
-                                <%= link_to "<i class='icon-home2 position-left'></i> <span>Dashboard</span>".html_safe, admin_path %>
+                                <%= link_to "<i class='icon-home2 position-left'></i>".html_safe + t('.dashboard'), admin_path %>
                             </li>
-							<li><%= link_to "<span>Dang sach</span>".html_safe, customers_path %></li>
-							<li>Listing Customers</li>
+							<li><%= link_to t('.infomation'), customers_path %></li>
+							<li><%= t('.listcustomer')%></li>
 						</ul>
 					</div>
             </div>
 <div class="content">
+	<% flash.each do |message_type, message| %>
+					<div class="alert alert-<%= message_type %>"><%= message %></div>
+				<% end %>
 <!-- Basic datatable -->
     <div class="panel panel-flat">
         <div class="panel-heading">
-            <h1 class="panel-title">Listing Customers</h1>
+            <h1 class="panel-title"><%= t('.listcustomer')%></h1>
             <div class="heading-elements">
                 <ul class="icons-list">
-                    <li class="custombutton"><%= link_to 'New Customer', new_customer_path, class:"btn btn-primary" %></li>
+                    <li class="custombutton"><%= link_to t('.addnew'), new_customer_path, class:"btn btn-primary" %></li>
                 </ul>
             </div>
         </div>
 
         
 
-        <table class="table datatable-basic">
+        <table class="table datatable-basic table-hover">
             <thead>
                 <tr>
-                     <th>Name</th>
-                    <th>Birthday</th>
-                    <th>Gender</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>Email</th>
-                    <th class="text-center">Action</th>
+                    <th><%= t('.name')%></th>
+                    <th><%= t('.birthday')%></th>
+                    <th><%= t('.gender')%></th>
+                    <th><%= t('.phone')%></th>
+                    <th><%= t('.address')%></th>
+                    <th><%= t('.email')%></th>
+                    <th class="text-center"><%= t('.action')%></th>
                 </tr>
             </thead>
             <tbody>
@@ -66,9 +68,9 @@
                                     </a>
 
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><%= link_to 'Show', customer %></li>
-                                        <li><%= link_to 'Edit',  edit_customer_path(customer) %></li>
-                                        <li><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                                        <li><%= link_to t('.show'), customer %></li>
+                                        <li><%= link_to t('.edit'),  edit_customer_path(customer) %></li>
+                                        <li><%= link_to t('.destroy'), customer, method: :delete, data: { confirm: 'Are you sure?' } %></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -89,4 +91,3 @@
 <%= javascript_include_tag 'bootbox.min.js' %>
 <%= javascript_include_tag 'sweet_alert.min.js' %>
 <%= javascript_include_tag 'components_modals.js' %>
-<% end %>

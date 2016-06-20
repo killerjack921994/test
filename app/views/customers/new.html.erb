@@ -1,5 +1,4 @@
-<% provide(:title, "Them khach hang")%>
-<% content_for :admin do %>
+<% provide(:title, t('.newcustomer'))%>
 <%= render 'admin/shared/nav'%>
 <div class="page-container">
     <div class="page-content">
@@ -10,24 +9,27 @@
 			<div class="page-header">
                 <div class="page-header-content">
                     <div class="page-title">
-                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">New Customer</span></h4>
+                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"><%= t('.newcustomer')%></span></h4>
                     </div>
                 </div>
                 <div class="breadcrumb-line">
 						<ul class="breadcrumb">
 							<li>
-                                <%= link_to "<i class='icon-home2 position-left'></i> <span>Dashboard</span>".html_safe, admin_path %>
+                                <%= link_to "<i class='icon-home2 position-left'></i>".html_safe + t('.dashboard'), admin_path %>
                             </li>
-							<li><%= link_to "<span>Dang sach</span>".html_safe, customers_path %></li>
-							<li><%= link_to "Listing Customers" , customers_path %></li>
-							<li>New Customer</li>
+							<li><%= link_to t('.infomation'), customers_path %></li>
+							<li><%= link_to t('.listcustomer') , customers_path %></li>
+							<li><%= t('.newcustomer')%></li>
 						</ul>
 					</div>
             </div>
 <div class="content">
+	<% flash.each do |message_type, message| %>
+					<div class="alert alert-<%= message_type %>"><%= message %></div>
+				<% end %>
 				<div class="panel panel-flat">
 					<div class="panel-heading">
-						<h1 class="panel-title">New Customer</h1>
+						<h1 class="panel-title"><%= t('.newcustomer')%></h1>
 					</div>
                     <div class="panel-body">
                         <%= render 'form' %>
@@ -52,4 +54,3 @@
 <%= javascript_include_tag 'picker.date_authors.js' %>
 <%= javascript_include_tag 'picker.time_authors.js' %>
 <%= javascript_include_tag 'legacy_authors.js' %>
-<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160613035829) do
+ActiveRecord::Schema.define(version: 20160615064557) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "name"
@@ -27,19 +27,39 @@ ActiveRecord::Schema.define(version: 20160613035829) do
     t.text     "description"
     t.decimal  "price"
     t.string   "image_url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "image"
-    t.integer  "staffs_id"
+    t.integer  "staff_id"
+    t.integer  "author_id"
+    t.integer  "manufacturer_id"
   end
 
-  add_index "books", ["staffs_id"], name: "index_books_on_staffs_id"
+  add_index "books", ["author_id"], name: "index_books_on_author_id"
+  add_index "books", ["manufacturer_id"], name: "index_books_on_manufacturer_id"
+  add_index "books", ["staff_id"], name: "index_books_on_staff_id"
+
+  create_table "books_categories", id: false, force: :cascade do |t|
+    t.integer "book_id"
+    t.integer "category_id"
+  end
+
+  add_index "books_categories", ["book_id"], name: "index_books_categories_on_book_id"
+  add_index "books_categories", ["category_id"], name: "index_books_categories_on_category_id"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "name"
+    t.text     "comment"
+    t.string   "user"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -58,6 +78,15 @@ ActiveRecord::Schema.define(version: 20160613035829) do
     t.text     "address"
     t.string   "phone"
     t.string   "fax"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "index"
+    t.string   "name"
+    t.string   "email"
+    t.string   "method"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

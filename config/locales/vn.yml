@@ -19,10 +19,512 @@
 
 vn:
   hello: "Xin Chào!!"
+  helpers:
+    submit:
+      category:
+        create: "Tạo"
+        update: "Thay Đổi"
+      book:
+        create: "Tạo"
+        update: "Thay Đổi"
+      author:
+        create: "Tạo"
+        update: "Thay Đổi"
+      manufacturer:
+        create: "Tạo"
+        update: "Thay Đổi"
+      order:
+        create: "Tạo"
+        update: "Thay Đổi"
+      staff:
+        create: "Tạo"
+        update: "Thay Đổi"
+      customer:
+        create: "Tạo"
+        update: "Thay Đổi"
+      comment:
+        create: "Tạo"
+        update: "Thay Đổi"
+        
+  activerecord:
+    attributes:
+      comment:
+        name: "Tên"
+        comment: "Bình Luận"
+        user: "Tài Khoản"
+      customer:
+        name: "Tên"
+        address: "Mô Tả"
+        phone: "Số Điện Thoại"
+        email: "Email"
+        address: "Địa Chỉ Liên Lạc"
+        birthday: "Ngày Sinh"
+      category:
+        name: "Tên"
+        description: "Mô Tả"
+      book:
+        name: "Tên"
+        description: "Mô Tả"
+        price: "Giá Tiền"
+        image: "Hình Ảnh"
+        image_url: "Đường Dẫn Hình Ảnh"
+      author:
+        name: "Tên"
+        description: "Mô Tả"
+        birthday: "Ngày Sinh"
+        homeland: "Quê Quán"
+      manufacturer:
+        name: "Tên"
+        address: "Mô Tả"
+        phone: "Số Điện Thoại"
+        fax: "Số Fax"
+      order:
+        name: "Tên"
+        email: "Email"
+      staff:
+        user: "Tài Khoản"
+        email: "Email"
+        password: "Mật Khẩu"
+    errors:
+      models:
+        comment:
+          attributes:
+            name:
+              blank: "không được để trống"
+            user:
+              blank: "không được để trống"
+            comment:
+              blank: "không được để trống"
+        customer:
+          attributes:
+            name:
+              blank: "không được để trống"
+            address:
+              blank: "không được để trống"
+            phone:
+              not_a_number: "không được để trống"
+            email:
+              blank: "không được để trống"
+              invalid: "Không hợp lệ"
+            address:
+              blank: "không được để trống"
+            birthday:
+              blank: "không được để trống"
+            user: 
+              blank: "không được để trống"
+            password: 
+              blank: "không được để trống"
+              too_short: "mật khẩu quá ngắn"
+            email:
+              blank: "không được để trống"
+              invalid: "Không hợp lệ"
+        staff:
+          attributes:
+            user: 
+              blank: "không được để trống"
+              taken: "đã tồn tại"
+            password: 
+              blank: "không được để trống"
+              too_short: "mật khẩu quá ngắn"
+            email:
+              blank: "không được để trống"
+              invalid: "Không hợp lệ"
+        order:
+          attributes:
+            name: 
+              blank: "không được để trống"
+            email:
+              blank: "không được để trống"
+              invalid: "Không hợp lệ"
+        manufacturer:
+          attributes:
+            name: 
+              blank: "không được để trống"
+              taken: "đã tồn tại"
+            address:
+              blank: "không được để trống"
+            phone:
+              not_a_number: "không được để trống"
+            fax: 
+              not_a_number: "không được để trống"
+        author:
+          attributes:
+            name: 
+              blank: "không được để trống"
+              taken: "đã tồn tại"
+            description:
+              blank: "không được để trống"
+            birthday:
+              blank: "không được để trống"
+            homeland:
+              blank: "không được để trống"
+        book:
+          attributes:
+            name: 
+              blank: "không được để trống"
+              taken: "đã tồn tại"
+            description:
+              blank: "không được để trống"
+            price:
+              blank: "không được để trống"
+            image:
+              blank: "không được để trống"
+            image_url:
+              blank: "không được để trống"
+        category:
+          attributes:
+            name: 
+              blank: "không được để trống"
+              taken: "đã tồn tại"
+            description:
+              blank: "không được để trống"
   
+  comments:
+    index:
+      listcomment: "Danh Sách Bình Luận"
+      dashboard: "Quản Lý"
+      comment: "Bình Luận"
+      addnew: "Thêm Nội Dung Bình Luận"
+      name: "Tên"
+      ndcomment: "Nội Dung Bình Luận"
+      user: "Tài Khoản"
+      action: "Chức Năng"
+      show: "Xem"
+      edit: "Sửa"
+      destroy: "Xóa"
+    new:
+      listcomment: "Danh Sách Bình Luận"
+      dashboard: "Quản Lý"
+      comment: "Bình Luận"
+      newcomment: "Thêm Nội Dung Bình Luận"
+    edit:
+      listcomment: "Danh Sách Bình Luận"
+      dashboard: "Quản Lý"
+      comment: "Bình Luận"
+      editcomment: "Chỉnh Sửa Nội Dung Bình Luận"
+    show:
+      listcomment: "Danh Sách Bình Luận"
+      dashboard: "Quản Lý"
+      comment: "Bình Luận"
+      showcomment: "Chi Tiết Nội Dung Bình Luận"
+      name: "Tên:"
+      ndcomment: "Nội Dung Bình Luận:"
+      user: "Tài Khoản:"
+      back: "Quay Lại"
+      edit: "Sửa"
+    form:
+      name: "Tên"
+      ndcomment: "Nội Dung Bình Luận"
+      user: "Tài Khoản"
+      back: "Quay Lại"
+      corfirm: "Xác Nhận"
+  
+  customers:
+    index:
+      listcustomer: "Danh Sách Khách Hàng"
+      dashboard: "Quản Lý"
+      infomation: "Thông Tin"
+      addnew: "Thêm Khách Hàng"
+      name: "Tên"
+      birthday: "Ngày Sinh"
+      gender: "Giới Tính"
+      phone: "Số Điện Thoại"
+      address: "Địa Chỉ Liên Lạc"
+      email: "Email"
+      action: "Chức Năng"
+      show: "Xem"
+      edit: "Sửa"
+      destroy: "Xóa"
+    new:
+      listcustomer: "Danh Sách Khách Hàng"
+      dashboard: "Quản Lý"
+      infomation: "Thông Tin"
+      newcustomer: "Thêm Khách Hàng"
+    edit:
+      listcustomer: "Danh Sách Khách Hàng"
+      dashboard: "Quản Lý"
+      infomation: "Thông Tin"
+      editcustomer: "Sửa Thông Tin Khách Hàng"
+    show:
+      listcustomer: "Danh Sách Khách Hàng"
+      dashboard: "Quản Lý"
+      infomation: "Thông Tin"
+      showcustomer: "Xem Chi Tiết Thông Tin Khách Hàng"
+      name: "Tên:"
+      birthday: "Ngày Sinh:"
+      gender: "Giới Tính:"
+      phone: "Số Điện Thoại:"
+      address: "Địa Chỉ Liên Lạc:"
+      email: "Email:"
+      back: "Quay Lại"
+      edit: "Sửa"
+    form:
+      name: "Tên"
+      birthday: "Ngày Sinh"
+      gender: "Giới Tính"
+      male: "Nam"
+      female: "Nữ"
+      address: "Địa Chỉ Liên Lạc"
+      phone: "Số Điện Thoại"
+      back: "Quay Lại"
+      corfirm: "Xác Nhận"
+      
+  static_page:
+    new:
+      newstaff: "Thêm Thành Viên"
+      titleaccount: "Thông Tin Tài Khoản"
+      user: "Tài Khoản"
+      email: "Email"
+      password: "Mật Khẩu"
+      passwordconfirmation: "Xác Nhận Mật Khẩu"
+      titlepersonal: "Thông Tin Cá Nhân"
+      name: "Tên"
+      birthday: "Ngày Sinh"
+      gender: "Giới Tính"
+      male: "Nam"
+      female: "Nữ"
+      phone: "Số Điện Thoại"
+      address: "Địa Chỉ Liên Hệ"
+      authority: "Quyền Truy Cập"
+      back: "Quay Lại"
+      corfirm: "Xác Nhận"
+      
+  staffs:
+    index:
+      liststaff: "Danh Sách Thành Viên"
+      dashboard: "Quản Lý"
+      infomation: "Thông Tin"
+      addnew: "Thêm Thành Viên"
+      name: "Tên"
+      birthday: "Ngày Sinh"
+      gender: "Giới Tính"
+      phone: "Số Điện Thoại"
+      address: "Địa Chỉ Liên Hệ"
+      email: "Email"
+      authority: "Quyền Truy Cập"
+      action: "Chức Năng"
+      show: "Xem "
+      edit: "Sửa"
+      destroy: "Xóa"
+    new:
+      liststaff: "Danh Sách Thành Viên"
+      dashboard: "Quản Lý"
+      infomation: "Thông Tin"
+      newstaff: "Thêm Thành Viên"
+    edit:
+      liststaff: "Danh Sách Thành Viên"
+      dashboard: "Quản Lý"
+      infomation: "Thông Tin"
+      editstaff: "Sửa Thông Thành Viên"
+    show:
+      liststaff: "Danh Sách Thành Viên"
+      dashboard: "Quản Lý"
+      infomation: "Thông Tin"
+      showstaff: "Thông Tin Chi Tiết Thành Viên"
+      name: "Tên:"
+      birthday: "Ngày Sinh:"
+      gender: "Giới Tính:"
+      phone: "Số Điện Thoại:"
+      email: "Email:"
+      authority: "Quyền Truy Cập:"
+      address: "Địa Chỉ Liên Hệ:"
+      back: "Quay Lại"
+      edit: "Sửa"
+    form:
+      titleaccount: "Thông Tin Tài Khoản"
+      user: "Tài Khoản"
+      email: "Email"
+      password: "Mật Khẩu"
+      passwordconfirmation: "Xác Nhận Mật Khẩu"
+      titlepersonal: "Thông Tin Cá Nhân"
+      name: "Tên"
+      birthday: "Ngày Sinh"
+      gender: "Giới Tính"
+      male: "Nam"
+      female: "Nữ"
+      phone: "Số Điện Thoại"
+      address: "Địa Chỉ Liên Hệ"
+      authority: "Quyền Truy Cập"
+      back: "Quay Lại"
+      corfirm: "Xác Nhận"
+      
+  orders:
+    index:
+      listorder: "Danh Sách Hóa Đơn"
+      dashboard: "Quản Lý"
+      order: "Hóa Đơn"
+      addnew: "Thêm Hóa Đơn"
+      name: "Tên"
+      email: "Email"
+      method: "Phương Thức"
+      action: "Chức năng"
+      show: "Xem "
+      edit: "Sửa"
+      destroy: "Xóa"
+    new:
+      listorder: "Danh Sách Hóa Đơn"
+      dashboard: "Quản Lý"
+      order: "Hóa Đơn"
+      neworder: "Thêm Hóa Đơn"
+    edit:
+      listorder: "Danh Sách Hóa Đơn"
+      dashboard: "Quản Lý"
+      order: "Hóa Đơn"
+      editorder: "Chỉnh Sửa Thông Tin Hóa Đơn"
+    show:
+      listorder: "Danh Sách Hóa Đơn"
+      dashboard: "Quản Lý"
+      order: "Hóa Đơn"
+      showorder: "Chi Tiết Hóa Đơn"
+      name: "Ten:"
+      email: "Email:"
+      method: "Phương Thức:"
+      back: "Quay Lại"
+      edit: "Sửa"
+    form:
+      name: "Tên"
+      email: "Email"
+      method: "Phương Thức"
+      back: "Quay Lại"
+      corfirm: "Xác Nhận"
+  
+  manufacturers:
+    index:
+      listmanufacturer: "Danh Sách Nhà Xuất Bản"
+      dashboard: "Quản Lý"
+      list: "Danh Sách"
+      addnew: "Thêm Nhà Xuất Bản"
+      name: "Tên"
+      address: "Địa Chỉ"
+      phone: "Số Điện Thoại"
+      fax: "Số Fax"
+      action: "Chức Năng"
+      show: "Xem "
+      edit: "Sửa"
+      destroy: "Xóa"
+    new:
+      listmanufacturer: "Danh Sách Nhà Xuất Bản"
+      dashboard: "Quản Lý"
+      list: "Danh Sách"
+      newmanufacturer: "Thêm Nhà Xuất Bản"
+    edit:
+      listmanufacturer: "Danh Sách Nhà Xuất Bản"
+      dashboard: "Quản Lý"
+      list: "Danh Sách"
+      editmanufacturer: "Chỉnh Sửa Thông Tin Nhà Xuất Bản"
+    show:
+      listmanufacturer: "Danh Sách Nhà Xuất Bản"
+      dashboard: "Quản Lý"
+      list: "Danh Sách"
+      showmanufacturer: "Chi Tiết Nhà Xuất Bản"
+      back: "Quay Lại"
+      edit: "Chỉnh Sửa"
+      name: "Tên:"
+      address: "Địa Chỉ:"
+      phone: "Phone:"
+      fax: "Fax:"
+    form:
+      name: "Tên"
+      address: "Địa Chỉ"
+      phone: "Phone"
+      fax: "Fax"
+      back: "Quay Lại"
+      corfirm: "Xác Nhận"
+      
+  authors:
+    index:
+      listauthor: "Danh Sách Tác Giả"
+      dashboard: "Quản Lý"
+      list: "Danh Sách"
+      addnew: "Thêm Tác Giả"
+      name: "Tên"
+      birthday: "Ngày Sinh"
+      homeland: "Quê Quán"
+      description: "Mô Tả"
+      action: "Chức Năng"
+      show: "Xem "
+      edit: "Sửa"
+      destroy: "Xóa"
+    new:
+      listauthor: "Danh Sách Tác Giả"
+      dashboard: "Quản Lý"
+      list: "Danh Sách"
+      newauthor: "Thêm Tác Giả"
+    edit:
+      listauthor: "Danh Sách Tác Giả"
+      dashboard: "Quản Lý"
+      list: "Danh Sách"
+      editauthor: Sửa Thông Tin Tác Giả"
+    show:
+      listauthor: "Danh Sách Tác Giả"
+      dashboard: "Quản Lý"
+      list: "Danh Sách"
+      showauthor: "Xem Chi Tiết Tác Giả"
+      back: "Quay Lại"
+      edit: "Sửa"
+      name: "Tên:"
+      description: "Mô Tả:"
+      birthday: "Ngày Sinh:"
+      homeland: "Quê Quán:"
+    form:
+      name: "Tên"
+      description: "Mô Tả"
+      birthday: "Ngày Sinh"
+      homeland: "Quê Quán"
+      back: "Quay Lại"
+      corfirm: "Xác Nhận"
+  books:
+    index:
+      listbook: "Danh Sách Sách"
+      dashboard: "Quản Lý"
+      list: "Danh Sách"
+      author: "Tác Giả"
+      staff: "Thành Viên"
+      image: "Hình Ảnh"
+      categories: "Thể Loại"
+      addnew: "Thêm Sách"
+      name: "Tên"
+      description: "Mô Tả"
+      action: "Chức Năng"
+      show: "Xem "
+      edit: "Sửa"
+      destroy: "Xóa"
+    new:
+      listbook: "Danh Sách Sách"
+      dashboard: "Quản Lý"
+      list: "Danh Sách"
+      newbook: "Thêm Sách"
+    edit:
+      listbook: "Danh Sách Sách"
+      dashboard: "Quản Lý"
+      list: "Danh Sách"
+      editbook: "Chỉnh Sửa Thông Tin Sách"
+    show:
+      listbook: "Danh Sách Sách"
+      dashboard: "Quản Lý"
+      list: "Danh Sách"
+      showbook: "Chi Tiết Sách"
+      categories: "Thể Loại:"
+      price: "Giá Tiền:"
+      author: "Tác Giả:"
+      manufacturer: "Nhà Xuất Bản:"
+      back: "Quay Lại"
+      edit: "Sửa"
+      name: "Tên Sách:"
+      description: "Mô Tả:"
+    form:
+      name: "Tên Sách"
+      description: "Mô Tả"
+      back: "Quay Lại"
+      corfirm: "Xác Nhận"
+      author: "Tác Giả"
+      manufacturer: "Nhà Xuất Bản"
+      price: "Giá Tiền"
+      image: "Hình Ảnh Đại Diện"
   admin:
     index:
-      hello: "Xin Chào Quản Trị Viên"
+      dashboard: "Quản Lý"
+      hello: "Xin Chào, "
     shared:
       sidebar:
         title: "Phần Chính"
@@ -35,12 +537,50 @@ vn:
         order: "Hóa Đơn"
         comment: "Bình Luận"
         information: "Thông Tin"
-        informationcustomers: "Thông Tin Khách Hàng"
-        informationstaffs: "Thông Tin Thành Viên"
+        informationcustomers: "Danh Sách Thông Tin Khách Hàng"
+        informationstaffs: "Danh Sách Thông Tin Thành Viên"
       nav:
         profile: "Thông Tin Tài Khoản"
         out: "Thoát Tài Khoản"
-
+  categories:
+    index:
+      listcategories: "Danh Sách Thể Loại"
+      dashboard: "Quản Lý"
+      list: "Danh Sách"
+      addnew: "Thêm Thể Loại"
+      name: "Tên"
+      description: "Mô Tả"
+      action: "Chức Năng"
+      show: "Xem "
+      edit: "Sửa"
+      destroy: "Xóa"
+    show:
+      showcategories: "Chi Tiết Categories"
+      listcategories: "Danh Sách Thể Loại"
+      list: "Danh Sách"
+      dashboard: "Quản Lý"
+      name: "Tên Thể Loại:"
+      description: "Mô Tả:"
+      back: "Quay Lại"
+      edit: "Sửa"
+    new:
+      newcategories: "Thêm Thể Loại"
+      listcategories: "Danh Sách Thể Loại"
+      list: "Danh Sách"
+      dashboard: "Quản Lý"
+    edit:
+      editcategories: "Chỉnh Sửa Thể Loại"
+      listcategories: "Danh Sách Thể Loại"
+      list: "Danh Sách"
+      dashboard: "Quản Lý"
+    form:
+      name: "Tên Thể Loại"
+      description: "Mô Tả"
+      back: "Quay Lại"
+      corfirm: "Xác Nhận"
+   
+    
+  
 
 
   

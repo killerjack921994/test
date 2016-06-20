@@ -1,4 +1,4 @@
-<% provide(:title, "Danh Sach The Loai")%>
+<% provide(:title, t('.listcategories'))%>
 <%= render 'admin/shared/nav'%>
 <div class="page-container">
     <div class="page-content">
@@ -9,16 +9,16 @@
             <div class="page-header">
                 <div class="page-header-content">
                     <div class="page-title">
-                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Listing Categories</span></h4>
+                        <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"><%= t('.listcategories')%></span></h4>
                     </div>
                 </div>
                 <div class="breadcrumb-line">
 						<ul class="breadcrumb">
 							<li>
-                                <%= link_to "<i class='icon-home2 position-left'></i> <span>Dashboard</span>".html_safe, admin_path %>
+                                <%= link_to "<i class='icon-home2 position-left'></i>".html_safe + t('.dashboard'), admin_path %>
                             </li>
-							<li><%= link_to "<span>Dang sach</span>".html_safe, categories_path %></li>
-							<li>Listing Categories</li>
+							<li><%= link_to  t('.list'), categories_path %></li>
+							<li><%= t('.listcategories')%></li>
 						</ul>
 					</div>
             </div>
@@ -29,11 +29,11 @@
 <!-- Basic datatable -->
     <div class="panel panel-flat">
         <div class="panel-heading">
-            <h1 class="panel-title">Listing Categories</h1>
+            <h1 class="panel-title"><%= t('.listcategories')%></h1>
 			<% if current_staff.admin %>
 				<div class="heading-elements">
 					<ul class="icons-list">
-						<li class="custombutton"><%= link_to 'New Category', new_category_path, class:"btn btn-primary" %></li>
+						<li class="custombutton"><%= link_to t('.addnew'), new_category_path, class:"btn btn-primary" %></li>
 					</ul>
 				</div>
 			<% else %>
@@ -42,12 +42,12 @@
 
         
 
-        <table class="table datatable-basic">
+        <table class="table datatable-basic table-hover">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th class="text-center">Action</th>
+                    <th><%= t('.name')%></th>
+                    <th><%= t('.description')%></th>
+                    <th class="text-center"><%= t('.action')%></th>
                 </tr>
             </thead>
             <tbody>
@@ -68,9 +68,9 @@
                                     </a>
 
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><%= link_to 'Show', category %></li>
-                                        <li><%= link_to 'Edit', edit_category_path(category) %></li>
-                                        <li><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                                        <li><%= link_to t('.show'), category %></li>
+                                        <li><%= link_to t('.edit'), edit_category_path(category) %></li>
+                                        <li><%= link_to t('.destroy'), category, method: :delete, data: { confirm: 'Are you sure?' } %></li>
                                     </ul>
                                 </li>
                             </ul>

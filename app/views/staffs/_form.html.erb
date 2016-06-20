@@ -12,53 +12,51 @@
     </div>
   <% end %>
   
-  <legend class="text-semibold"><h5>Thông Tin Tài Khoản</h5></legend>
+  <legend class="text-semibold"><h5><%= t('.titleaccount')%></h5></legend>
 	<div class="field required">
-    <%= f.label :user %><br>
+    <%= f.label :user, t('.user') %><br>
     <%= f.text_field :user, class:"form-control", placeholder:"Nhap ten tai khoan" %>
   </div>
 	<div class="field required">
-    <%= f.label :email %><br>
+    <%= f.label :email, t('.email') %><br>
     <%= f.text_field :email, class:"form-control", placeholder:"eugene@kopyov.com" %>
 		<span class="help-block">Accepted formats: example@gmail.com</span>
   </div>
 	<div class="field required">
-    <%= f.label :password %><br>
+    <%= f.label :password, t('.password') %><br>
     <%= f.password_field :password, class:"form-control", placeholder:"Your strong password" %>
   </div>
-  
   <div class="field required">
-    <%= f.label :password_confirmation, "Password Confirmation" %><br>
-    <%= f.password_field :password_confirmation, class:"form-control", placeholder:"Repeat password" %>
+    <%= f.label :password_confirmation, t('.passwordconfirmation') %><br>
+    <%= f.password_field :password_confirmation, class:"form-control", placeholder:"Repeat password"%>
   </div>
 	
-	
-	<legend class="text-semibold"><h5>Thông tin cá nhân</h5></legend>
+	<legend class="text-semibold"><h5><%= t('.titlepersonal')%></h5></legend>
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name, t('.name') %><br>
     <%= f.text_field :name, class:"form-control", placeholder:"Nhap ten Nhan Vien" %>
   </div>
  <div class="field">
-    <%= f.label :birthday %><br>
+    <%= f.label :birthday, t('.birthday') %><br>
     <%= f.text_field :birthday, class:"form-control", id:"anytime-month-numeric", placeholder:"dd/mm/yyyy"%>
   </div>
   <div class="field">
-    <%= f.label :gender, class:"display-block" %><br>
-		<%= f.label :gender_male, 'Nam', class:"radio-inline" %>
+    <%= f.label :gender, t('.gender'), class:"display-block" %><br>
+		<%= f.label :gender_male,  t('.male'), class:"radio-inline" %>
     <%= f.radio_button :gender, 'Nam', class:"styled", :checked => true%>
-    <%= f.label :gender_female, 'Nữ', class:"radio-inline" %>
+    <%= f.label :gender_female,  t('.female'), class:"radio-inline" %>
     <%= f.radio_button :gender, 'Nữ', class:"styled" %><br />
   </div>
   <div class="field">
-    <%= f.label :phone %><br>
+    <%= f.label :phone, t('.phone') %><br>
     <%= f.text_field :phone, :maxlength => 12, class:"form-control", placeholder:"+99-99-9999-9999", onkeypress: 'return event.charCode >= 48 && event.charCode <= 57' %>
   </div>
   <div class="field">
-    <%= f.label :address %><br>
+    <%= f.label :address, t('.address') %><br>
     <%= f.text_area :address, class:"form-control", placeholder:"Ring street 12" %>
   </div>
   <div class="actions text-right">
     <%= f.submit nil, :class => 'btn btn-primary'%>
-		 <%= link_to 'Back', staffs_path, class:"btn btn-primary" %>
+		 <%= link_to t('.back'), staffs_path, class:"btn btn-primary" %>
   </div>
 <% end %>
